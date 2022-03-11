@@ -13,7 +13,7 @@ class MainTableViewCell: UITableViewCell {
     
     private let taskLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
+        label.font = .systemFont(ofSize: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.numberOfLines = 0
@@ -28,6 +28,7 @@ class MainTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .blue
         contentView.addSubview(containerView)
         setupContainerView()
         layoutIfNeeded()
@@ -39,22 +40,22 @@ class MainTableViewCell: UITableViewCell {
     
     private func setupContainerView() {
         containerView.addSubview(taskLabel)
-        containerView.backgroundColor = .red
-        containerView.layer.cornerRadius = 8
+        containerView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        containerView.layer.cornerRadius = 12
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            taskLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
-            taskLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
-            taskLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
-            taskLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5)
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
+            taskLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            taskLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            taskLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            taskLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
         ])
 
     }

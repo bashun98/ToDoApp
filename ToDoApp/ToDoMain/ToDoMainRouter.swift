@@ -26,4 +26,10 @@ extension ToDoMainRouter: ToDoMainRouterInput {
         viewController?.present(alertVC, animated: false, completion: nil)
     }
     
+    func openDetailView() {
+        let container = ToDoDetailContainer.assemble(with: .init())
+        let detailVC = container.viewController
+        viewController?.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
 }

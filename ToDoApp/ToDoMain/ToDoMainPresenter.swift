@@ -25,12 +25,16 @@ extension ToDoMainPresenter: ToDoMainModuleInput {
 }
 
 extension ToDoMainPresenter: ToDoMainViewOutput {
+    
     func addButtonTapped() {
         router.addNewTask { text in
             self.view?.updateTableView(with: text)
         }
     }
     
+    func didSelectItem(at index: Int) {
+        router.openDetailView()
+    }
 }
 
 extension ToDoMainPresenter: ToDoMainInteractorOutput {

@@ -71,6 +71,22 @@ final class ToDoMainViewController: UITableViewController {
         cell.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            array.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.endUpdates()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectItem(at: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    
 }
 
 extension ToDoMainViewController: ToDoMainViewInput {

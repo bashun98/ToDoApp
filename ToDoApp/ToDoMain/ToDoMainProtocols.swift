@@ -21,6 +21,7 @@ protocol ToDoMainViewInput: AnyObject {
 
 protocol ToDoMainViewOutput: AnyObject {
     func addButtonTapped()
+    func didSelectItem(at index: Int)
 }
 
 protocol ToDoMainInteractorInput: AnyObject {
@@ -31,4 +32,5 @@ protocol ToDoMainInteractorOutput: AnyObject {
 
 protocol ToDoMainRouterInput: AnyObject {
     func addNewTask(completion: @escaping (String)->())
+    func openDetailView()
 }
