@@ -8,15 +8,19 @@
 
 import UIKit
 
+
 final class ToDoMainViewController: UITableViewController {
 	private let output: ToDoMainViewOutput
     
-    private var array: [TaskModel] = [TaskModel(task: "15446546545645644465456"),
-                                      TaskModel(task: "15446546545645644465456"),
-                                      TaskModel(task: "15446546545645644465456"),
-                                      TaskModel(task: "15446546545645644465456"),
-                                      TaskModel(task: "15446546545645644465456"),
-                                      TaskModel(task: "15446546545645644465456")]
+    private var array: [TaskModel] = []
+
+    
+//    private var array: [TaskModel] = [TaskModel(task: "15446546545645644465456"),
+//                                      TaskModel(task: "15446546545645644465456"),
+//                                      TaskModel(task: "15446546545645644465456"),
+//                                      TaskModel(task: "15446546545645644465456"),
+//                                      TaskModel(task: "15446546545645644465456"),
+//                                      TaskModel(task: "15446546545645644465456")]
 
     init(output: ToDoMainViewOutput) {
         self.output = output
@@ -32,7 +36,7 @@ final class ToDoMainViewController: UITableViewController {
 		super.viewDidLoad()
         setupNavBar()
         setupTableView()
-        
+        output.loadTasks()
 	}
     
     private func setupNavBar() {
@@ -58,17 +62,17 @@ final class ToDoMainViewController: UITableViewController {
         output.addButtonTapped()
     }
     
-    
-    //MARK: - DataSource
+    //MARK: - DataSource and Delegate
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return output.tasksCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier) as? MainTableViewCell else {return UITableViewCell()}
-        cell.configure(with: array[indexPath.row].task)
+        cell.configure(with: output.tasks(at: indexPath.row))
         cell.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+       // cell.accessoryType = array[indexPath.row].done ? .checkmark : .none
         return cell
     }
     
@@ -83,16 +87,18 @@ final class ToDoMainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didSelectItem(at: indexPath.row)
+        //array[indexPath.row].done = !array[indexPath.row].done
         tableView.deselectRow(at: indexPath, animated: false)
+        tableView.reloadData()
     }
     
     
 }
 
+//MARK: - Extension
+
 extension ToDoMainViewController: ToDoMainViewInput {
-    func updateTableView(with text: String) {
-        array.append(TaskModel(task: text))
+    func updateTableView() {
         tableView.reloadData()
     }
-    
 }

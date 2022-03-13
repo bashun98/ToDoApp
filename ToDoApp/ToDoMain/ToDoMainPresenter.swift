@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 final class ToDoMainPresenter {
 	weak var view: ToDoMainViewInput?
@@ -14,6 +15,8 @@ final class ToDoMainPresenter {
 
 	private let router: ToDoMainRouterInput
 	private let interactor: ToDoMainInteractorInput
+    
+    private var tasks: [TaskModel] = []
 
     init(router: ToDoMainRouterInput, interactor: ToDoMainInteractorInput) {
         self.router = router
@@ -26,16 +29,32 @@ extension ToDoMainPresenter: ToDoMainModuleInput {
 
 extension ToDoMainPresenter: ToDoMainViewOutput {
     
+    var tasksCount: Int {
+        tasks.count
+    }
+    
+    func tasks(at index: Int) -> TaskModel {
+        tasks[index]
+    }
+
     func addButtonTapped() {
-        router.addNewTask { text in
-            self.view?.updateTableView(with: text)
+        router.addNewTask { [weak self] text in
+            self?.interactor.saveTask(with: text)
         }
     }
     
     func didSelectItem(at index: Int) {
         router.openDetailView()
     }
+    
+    func loadTasks() {
+        interactor.loadTasks()
+    }
 }
 
 extension ToDoMainPresenter: ToDoMainInteractorOutput {
+    func getModel(_ model: [TaskModel]) {
+        tasks = model
+        view?.updateTableView()
+    }
 }

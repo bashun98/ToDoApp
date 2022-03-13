@@ -60,8 +60,8 @@ class MainTableViewCell: UITableViewCell {
 
     }
     
-    public func configure(with task: String) {
-        taskLabel.text = task
+    public func configure(with model: TaskModel) {
+        taskLabel.text = model.title
     }
     
 }
