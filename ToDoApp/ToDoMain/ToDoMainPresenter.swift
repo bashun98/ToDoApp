@@ -40,6 +40,7 @@ extension ToDoMainPresenter: ToDoMainViewOutput {
     func addButtonTapped() {
         router.addNewTask { [weak self] text in
             self?.interactor.saveTask(with: text)
+            self?.interactor.loadTasks()
         }
     }
     

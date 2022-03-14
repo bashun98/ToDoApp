@@ -13,14 +13,14 @@ final class ToDoMainViewController: UITableViewController {
 	private let output: ToDoMainViewOutput
     
     private var array: [TaskModel] = []
-
     
-//    private var array: [TaskModel] = [TaskModel(task: "15446546545645644465456"),
-//                                      TaskModel(task: "15446546545645644465456"),
-//                                      TaskModel(task: "15446546545645644465456"),
-//                                      TaskModel(task: "15446546545645644465456"),
-//                                      TaskModel(task: "15446546545645644465456"),
-//                                      TaskModel(task: "15446546545645644465456")]
+    private let addButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Add", for: .normal)
+        button.backgroundColor = .red
+        return button
+    }()
 
     init(output: ToDoMainViewOutput) {
         self.output = output
@@ -34,13 +34,27 @@ final class ToDoMainViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        navigationController?.view.addSubview(addButton)
         setupNavBar()
         setupTableView()
         output.loadTasks()
+        addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
 	}
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        addButton.layer.cornerRadius = UIScreen.main.bounds.width / 10
+        NSLayoutConstraint.activate([
+            addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height / 15),
+            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIScreen.main.bounds.height / 30),
+            addButton.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 5),
+            addButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 5),
+        ])
+        
+    }
+    
     private func setupNavBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
         navigationItem.title = "ToDo"
         
         navigationController?.navigationBar.prefersLargeTitles = true
