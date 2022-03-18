@@ -26,7 +26,7 @@ struct TasksDataBase: TasksDataBaseDescription {
     
     func saveTasks(with text: String) {
         let newTask = TaskModel(context: context)
-        newTask.title = text
+        newTask.titleLabel = text
         do {
             try context.save()
         } catch  {
