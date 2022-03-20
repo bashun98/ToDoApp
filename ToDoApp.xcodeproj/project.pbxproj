@@ -28,6 +28,7 @@
 		20CE6FC227D8BE57008BC6C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CE6FC027D8BE57008BC6C7 /* Main.storyboard */; };
 		20CE6FC427D8BE5B008BC6C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20CE6FC327D8BE5B008BC6C7 /* Assets.xcassets */; };
 		20CE6FC727D8BE5B008BC6C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CE6FC527D8BE5B008BC6C7 /* LaunchScreen.storyboard */; };
+		20FEFD7A27E65BF100361A71 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FEFD7927E65BF100361A71 /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		20CE6FC327D8BE5B008BC6C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20CE6FC627D8BE5B008BC6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20CE6FC827D8BE5B008BC6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20FEFD7927E65BF100361A71 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				2062B6EB27DB938B00FBAE81 /* ToDoDetailProtocols.swift */,
 				2062B6EC27DB938B00FBAE81 /* ToDoDetailInteractor.swift */,
 				2062B6ED27DB938B00FBAE81 /* ToDoDetailContainer.swift */,
+				2062B6E227DB7FDD00FBAE81 /* ToDoMain */,
 			);
 			path = ToDoDetail;
 			sourceTree = "<group>";
@@ -116,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				2062B6E727DB937700FBAE81 /* ToDoDetail */,
-				2062B6E227DB7FDD00FBAE81 /* ToDoMain */,
 				20CE6FBA27D8BE57008BC6C7 /* AppDelegate.swift */,
 				20CE6FBC27D8BE57008BC6C7 /* SceneDelegate.swift */,
+				20FEFD7927E65BF100361A71 /* AddTaskViewController.swift */,
 				20CE6FC027D8BE57008BC6C7 /* Main.storyboard */,
 				20CE6FC327D8BE5B008BC6C7 /* Assets.xcassets */,
 				20CE6FC527D8BE5B008BC6C7 /* LaunchScreen.storyboard */,
@@ -202,6 +205,7 @@
 				2062B6F327DB938B00FBAE81 /* ToDoDetailContainer.swift in Sources */,
 				2062B72E27DDF2CD00FBAE81 /* TasksDataBase.swift in Sources */,
 				2062B6EE27DB938B00FBAE81 /* ToDoDetailPresenter.swift in Sources */,
+				20FEFD7A27E65BF100361A71 /* AddTaskViewController.swift in Sources */,
 				2062B6E127DB7FCD00FBAE81 /* ToDoMainContainer.swift in Sources */,
 				2062B6F127DB938B00FBAE81 /* ToDoDetailProtocols.swift in Sources */,
 				2062B6E427DB831D00FBAE81 /* MainTableViewCell.swift in Sources */,

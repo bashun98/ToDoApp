@@ -23,6 +23,7 @@ final class ToDoMainContainer {
 		presenter.moduleOutput = context.moduleOutput
         
         router.viewController = viewController
+        router.presenter = presenter
 
 		interactor.output = presenter
 

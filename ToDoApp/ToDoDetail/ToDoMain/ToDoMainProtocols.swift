@@ -45,3 +45,7 @@ protocol TasksDataBaseDescription {
     func loadTasks(completion: ([TaskModel])->())
     func saveTasks(with text: String)
 }
+
+protocol ToDoMainPresenterInput: AnyObject {
+    func getTask(with title: String)
+}

@@ -34,33 +34,33 @@ final class ToDoMainViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        navigationController?.view.addSubview(addButton)
+        //navigationController?.view.addSubview(addButton)
         setupNavBar()
         setupTableView()
         output.loadTasks()
-        addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+        //addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
 	}
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        addButton.layer.cornerRadius = UIScreen.main.bounds.width / 10
-        NSLayoutConstraint.activate([
-            addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height / 15),
-            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIScreen.main.bounds.height / 30),
-            addButton.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 5),
-            addButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 5),
-        ])
+//        addButton.layer.cornerRadius = UIScreen.main.bounds.width / 10
+//        NSLayoutConstraint.activate([
+//            addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height / 15),
+//            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIScreen.main.bounds.height / 30),
+//            addButton.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 5),
+//            addButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 5),
+//        ])
         
     }
     
     private func setupNavBar() {
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
         navigationItem.title = "ToDo"
         
         //navigationController?.navigationBar.prefersLargeTitles = true
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        appearance.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.8352941176, blue: 0.7450980392, alpha: 1)
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = navigationItem.standardAppearance
     }
@@ -107,7 +107,7 @@ final class ToDoMainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
     
     

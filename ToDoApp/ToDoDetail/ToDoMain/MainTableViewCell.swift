@@ -16,7 +16,7 @@ class MainTableViewCell: UITableViewCell {
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.numberOfLines = 0
+        label.numberOfLines = 1
        // label.backgroundColor = .red
         return label
     }()
@@ -96,8 +96,8 @@ class MainTableViewCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             
-            indicatorImageView.widthAnchor.constraint(equalToConstant: 20),
-            indicatorImageView.heightAnchor.constraint(equalToConstant: 20),
+            indicatorImageView.widthAnchor.constraint(equalToConstant: 12),
+            indicatorImageView.heightAnchor.constraint(equalToConstant: 12),
             
             
 

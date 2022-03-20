@@ -15,7 +15,7 @@ final class ToDoMainPresenter {
 
 	private let router: ToDoMainRouterInput
 	private let interactor: ToDoMainInteractorInput
-    
+  
     private var tasks: [TaskModel] = []
 
     init(router: ToDoMainRouterInput, interactor: ToDoMainInteractorInput) {
@@ -58,4 +58,12 @@ extension ToDoMainPresenter: ToDoMainInteractorOutput {
         tasks = model
         view?.updateTableView()
     }
+}
+
+extension ToDoMainPresenter: ToDoMainPresenterInput {
+    func getTask(with title: String) {
+        interactor.saveTask(with: title)
+        interactor.loadTasks()
+    }
+    
 }
