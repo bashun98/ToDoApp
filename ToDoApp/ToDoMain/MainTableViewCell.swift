@@ -101,7 +101,7 @@ class MainTableViewCell: UITableViewCell {
             
             
 
-            boarder.heightAnchor.constraint(equalToConstant: 30),
+            boarder.heightAnchor.constraint(equalTo: stackView.heightAnchor, constant: -10),
             boarder.widthAnchor.constraint(equalToConstant: 80),
             
             priorityLabel.centerXAnchor.constraint(equalTo: boarder.centerXAnchor),

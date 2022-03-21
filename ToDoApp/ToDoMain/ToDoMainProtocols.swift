@@ -37,7 +37,7 @@ protocol ToDoMainInteractorOutput: AnyObject {
 }
 
 protocol ToDoMainRouterInput: AnyObject {
-    func addNewTask(completion: @escaping (String)->())
+    func addNewTask()
     func openDetailView()
 }
 

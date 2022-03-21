@@ -94,7 +94,6 @@
 				2062B6EB27DB938B00FBAE81 /* ToDoDetailProtocols.swift */,
 				2062B6EC27DB938B00FBAE81 /* ToDoDetailInteractor.swift */,
 				2062B6ED27DB938B00FBAE81 /* ToDoDetailContainer.swift */,
-				2062B6E227DB7FDD00FBAE81 /* ToDoMain */,
 			);
 			path = ToDoDetail;
 			sourceTree = "<group>";
@@ -119,9 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				2062B6E727DB937700FBAE81 /* ToDoDetail */,
-				20CE6FBA27D8BE57008BC6C7 /* AppDelegate.swift */,
+				2062B6E227DB7FDD00FBAE81 /* ToDoMain */,
 				20CE6FBC27D8BE57008BC6C7 /* SceneDelegate.swift */,
 				20FEFD7927E65BF100361A71 /* AddTaskViewController.swift */,
+				20CE6FBA27D8BE57008BC6C7 /* AppDelegate.swift */,
 				20CE6FC027D8BE57008BC6C7 /* Main.storyboard */,
 				20CE6FC327D8BE5B008BC6C7 /* Assets.xcassets */,
 				20CE6FC527D8BE5B008BC6C7 /* LaunchScreen.storyboard */,

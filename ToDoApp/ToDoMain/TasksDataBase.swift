@@ -14,6 +14,8 @@ struct TasksDataBase: TasksDataBaseDescription {
     
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    private init() {}
+    
     func loadTasks(completion: ([TaskModel])->()) {
         let request: NSFetchRequest<TaskModel> = TaskModel.fetchRequest()
         do {
